@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pedra, Papel e Tesoura</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="container">
+        <div id="home-screen" class="card">
+            <h1>Pedra, Papel e Tesoura</h1>
+
+            <input type="text" id="playerName" placeholder="Seu Nome">
+
+            <button id="createGameBtn" class="btn-primary">Criar Novo Jogo</button>
+
+            <p class="divider">ou</p>
+
+            <input type="text" id="gameIdInput" placeholder="ID do Jogo para Entrar">
+
+            <button id="joinGameBtn" class="btn-primary">Entrar em Jogo</button>
+        </div>
+
+        <div id="game-screen" class="card hidden">
+            <h1>Pedra, Papel e Tesoura</h1>
+
+            <h2 id="statusText">Aguardando oponente...</h2>
+
+            <p id="gameInfo"></p>
+
+            <div class="options">
+                <button class="choice-btn" data-choice="pedra">🪨 Pedra</button>
+                <button class="choice-btn" data-choice="papel">📄 Papel</button>
+                <button class="choice-btn" data-choice="tesoura">✂️ Tesoura</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Apenas interface — comunicação P2P e CRUD ficariam em outro arquivo JS.
+        const home = document.getElementById("home-screen");
+        const game = document.getElementById("game-screen");
+
+        document.getElementById("createGameBtn").onclick = () => {
+            home.classList.add("hidden");
+            game.classList.remove("hidden");
+            document.getElementById("gameInfo").innerHTML = "Game ID: 12<br>Você é: Jogador 1";
+        };
+
+        document.getElementById("joinGameBtn").onclick = () => {
+            home.classList.add("hidden");
+            game.classList.remove("hidden");
+            document.getElementById("gameInfo").innerHTML = "Entrando no jogo...";
+        };
+    </script>
+</body>
+</html>
